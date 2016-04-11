@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.netanelshilo.taskmanager">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.camera" android:required="false"></uses-feature>
+
+    <application
+        android:name=".TaskManager"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.Tasksacionbar">
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".AddMembersActivity" />
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="E4Mau0ldhUSQ9VusZ4xHUvuKO40ipgRcSIZn0kdd" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="3asf9Fo3pgehA7LelWPgQUD35qJ2mRtGzDMK6C02" />
+
+        <activity
+            android:name=".TasksviewActivity"
+            android:label="@string/title_activity_tasksview"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddEditTask" />
+        <activity
+            android:name=".AllTaskActivity"
+            android:label="@string/title_activity_all_task"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WaitingTaskActivity" />
+        <activity android:name=".TaskReportActivity"></activity>
+    </application>
+
+</manifest>

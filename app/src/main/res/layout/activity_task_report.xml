@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.netanelshilo.taskmanager.TaskReportActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/labelSpinner1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Category : " />
+
+        <Spinner
+            android:id="@+id/category_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:layout_toRightOf="@id/labelSpinner1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:text="PRIORITY : " />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvPriority"
+            android:orientation="horizontal"
+            android:id="@+id/rgPriority"
+            >
+            <RadioButton android:id="@+id/radio_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                />
+            <RadioButton android:id="@+id/radio_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low"
+                />
+            <RadioButton android:id="@+id/radio_urgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urgent"
+                />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Location : " />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etLocation"
+            android:layout_toRightOf="@+id/tvLocation"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/labelSpinnerUsers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="User for Task : " />
+
+        <Spinner
+            android:id="@+id/users_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawSelectorOnTop="true"
+            android:layout_toRightOf="@id/labelSpinnerUsers"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/labelTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Due TIme : " />
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/labelTime"
+            android:orientation="horizontal"
+            android:id="@+id/rgDutTime"
+            >
+            <RadioButton android:id="@+id/radio_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today   "
+                />
+            <RadioButton android:id="@+id/radio_tommorw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tomorrow   " />
+            <TextView
+                android:id="@+id/labelDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/labelAcceptStasut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Accept Status" />
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/labelAcceptStasut"
+            android:orientation="horizontal"
+            android:id="@+id/rgAccept"
+            >
+            <RadioButton android:id="@+id/radio_waiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WAITING"
+                />
+            <RadioButton android:id="@+id/radio_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACCEPT" />
+            <RadioButton android:id="@+id/radio_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="REJECT" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvStasut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Status" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/labelAcceptStasut"
+            android:orientation="horizontal"
+            android:id="@+id/rgSts"
+            >
+            <RadioButton android:id="@+id/radio_waiting_sts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WAITING"
+                android:onClick="CheckDone"
+                />
+            <RadioButton android:id="@+id/radio_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="CheckDone"
+                android:text="IN PROGRESS" />
+            <RadioButton android:id="@+id/radio_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="CheckDone"
+                android:text="DONE" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Take photo"
+            android:onClick="takePic">
+
+        </Button>
+        <ImageView android:id="@+id/imageView1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+        </ImageView>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/btnAddUpdate"
+        android:onClick="UpdateTask"/>
+
+</LinearLayout>

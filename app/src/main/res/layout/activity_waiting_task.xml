@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMessge"
+                android:textColor="@color/Blue"/>
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:onClick="AddTask"
+                android:src="@android:drawable/ic_input_add"
+                android:layout_gravity="end|bottom"
+                app:backgroundTint="#FF0000"
+                app:rippleColor="#FFF" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabRefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:onClick="RefrashTasks"
+                android:src="@android:drawable/ic_menu_rotate"
+                android:layout_gravity="end|bottom"
+                app:backgroundTint="#303F9F"
+                app:rippleColor="#FFF" />
+
+
+    </LinearLayout>
