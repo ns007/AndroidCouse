@@ -1,10 +1,7 @@
-package com.netanelshilo.taskmanager;
-
-import android.widget.ArrayAdapter;
+package com.netanelsagi.taskmanager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by netanel shilo on 29/12/2015.

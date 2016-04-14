@@ -1,4 +1,4 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 import org.junit.Test;
 

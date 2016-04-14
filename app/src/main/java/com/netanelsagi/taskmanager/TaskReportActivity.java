@@ -1,6 +1,5 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -9,14 +8,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -322,6 +319,9 @@ public class TaskReportActivity extends FragmentActivity {
                 alert.show();
                 break;
             case  R.id.hamManage:
+                if(GLB_VERB.is_manager == false){
+                    break;
+                }
                 Intent intent = new Intent(this,AddMembersActivity.class);
                 startActivity(intent);
         }

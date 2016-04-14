@@ -1,4 +1,4 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,7 +14,7 @@ public class AboutDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("App Name: TaskManager \n Version:1.0.0 \n  Netanel shilo - id:201198058 \n Sagi Maday - id:123456789")
+        builder.setMessage("App Name: TaskManager \n Version:1.0.0 \n  Netanel shilo - id:201198058 \n Sagi Maday - id:302527304")
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //ok click

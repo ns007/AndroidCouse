@@ -1,4 +1,4 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 import android.content.Context;
 import android.view.LayoutInflater;

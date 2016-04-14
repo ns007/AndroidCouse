@@ -1,15 +1,16 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -21,15 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 public class AddEditTask extends Activity {
@@ -92,23 +90,61 @@ public class AddEditTask extends Activity {
         categoris.add("Select user");
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categoris);
-
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         // attaching data adapter to spinner
         user.setAdapter(dataAdapter);
-
-        /*configUsers(); //get users from db;
-        String[] users = TeamUsers.toArray(new String[TeamUsers.size()]);
-        //final String[] str= {"Report 1","Report 2","Report 3","Report 4","Report 5"};
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, TeamUsers);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        user.setAdapter(spinnerArrayAdapter);*/
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.homepage,menu);
+        return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.hamLogout:
+                ParseUser.logOut();
+                Intent login = new Intent(this,LoginActivity.class);
+                startActivity(login);
+                break;
+            case R.id.hamAbout:
+                //open dialog with sagi and me detalis
+                DialogFragment newFragment = new AboutDialogFragment();
+                newFragment.show(getFragmentManager(), "About");
+                break;
+            case R.id.hamSetting:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                final EditText edittext = new EditText(this);
+                alert.setMessage("Check for new update");
+                alert.setTitle("Enter check for update time");
+
+                alert.setView(edittext);
+
+                alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        GLB_VERB.UpdateTime = Integer.parseInt(edittext.getText().toString());
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+                break;
+            case  R.id.hamManage:
+                if(GLB_VERB.is_manager == false){
+                    break;
+                }
+                Intent intent = new Intent(this,AddMembersActivity.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void configUsers () {
 

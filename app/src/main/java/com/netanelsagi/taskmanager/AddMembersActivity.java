@@ -1,14 +1,15 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.opengl.GLES10;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,16 +17,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
-
-import java.lang.reflect.Member;
-import java.util.List;
 
 public class AddMembersActivity extends Activity {
 
@@ -42,6 +38,56 @@ public class AddMembersActivity extends Activity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.homepage,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.hamLogout:
+                ParseUser.logOut();
+                Intent login = new Intent(this,LoginActivity.class);
+                startActivity(login);
+                break;
+            case R.id.hamAbout:
+                //open dialog with sagi and me detalis
+                DialogFragment newFragment = new AboutDialogFragment();
+                newFragment.show(getFragmentManager(), "About");
+                break;
+            case R.id.hamSetting:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                final EditText edittext = new EditText(this);
+                alert.setMessage("Check for new update");
+                alert.setTitle("Enter check for update time");
+
+                alert.setView(edittext);
+
+                alert.setPositiveButton("Set", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        GLB_VERB.UpdateTime = Integer.parseInt(edittext.getText().toString());
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+                break;
+            case  R.id.hamManage:
+                if(GLB_VERB.is_manager == false){
+                    break;
+                }
+                Intent intent = new Intent(this,AddMembersActivity.class);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //Sign up click
     public void openDialog(View view)

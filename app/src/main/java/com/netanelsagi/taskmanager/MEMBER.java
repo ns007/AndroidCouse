@@ -1,4 +1,4 @@
-package com.netanelshilo.taskmanager;
+package com.netanelsagi.taskmanager;
 
 /**
  * Created by netanel shilo on 04/01/2016.
